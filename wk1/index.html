@@ -10,18 +10,22 @@
     <h1>My Grocery List</h1>
     <section>
         <div>
-            <form name="Groceries" ng-controller="FormController as formCtrl" novalidate>
-                <input placeholder="Missing Something?" ng-model="formCtrl.formItem" type="text" required>
+            <form name="Groceries" ng-controller="FormController as formCtrl" ng-submit="formCtrl.addGrocery(formCtrl.string)" novalidate>
+                <input placeholder="Missing Something?" id="grocery" ng-model="formCtrl.string" name="grocery" type="text" required>
                 <button type="submit">Save</button>
-                <blockquote><strong>{{formCtrl.formItem}}</strong></blockquote>
+                <blockquote><strong>{{formCtrl.string}}</strong></blockquote>
             </form>
         </div>
         <div>
             <h2>Items: {{lister.counter}}</h2>
         </div>
-        <div ng-repeat="item in lister.item">
-            {{item.name}}
-        </div>
+
+            <div ng-repeat="items in lister.items">
+                <form ng-controller="SubController as subCtrl" ng-submit="subCtrl.subGrocery(items)">
+                <a href="#">{{items}}</a>  <button type="submit" class="delete-item">x</button>
+                </form>
+            </div>
+
     </section>
 </body>
 </html>
