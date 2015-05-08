@@ -3,26 +3,30 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>My First Angular App</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular/app.js"></script>
 </head>
 <body ng-controller="ListController as lister">
-    <h1>My Grocery List</h1>
-    <section>
+
+<section>
+<span><h1>My Grocery List</h1>{{items.length}}</span>
+
         <div>
-            <form name="Groceries" ng-controller="FormController as formCtrl" ng-submit="formCtrl.addGrocery(formCtrl.string)" novalidate>
+            <form class="pure-form pure-form-aligned" name="Groceries" ng-controller="FormController as formCtrl" ng-submit="formCtrl.addGrocery(formCtrl.string)" novalidate>
                 <input placeholder="Missing Something?" id="grocery" ng-model="formCtrl.string" name="grocery" type="text" required>
-                <button type="submit">Save</button>
+                <button class="pure-button pure-button-primary" type="submit">Save</button>
                 <blockquote><strong>{{formCtrl.string}}</strong></blockquote>
             </form>
         </div>
         <div>
-            <h2>Items: {{lister.counter}}</h2>
+            <h2>Items: {{lister.items.length}}</h2>
         </div>
 
             <div ng-repeat="items in lister.items">
                 <form ng-controller="SubController as subCtrl" ng-submit="subCtrl.subGrocery(items)">
-                <a href="#">{{items}}</a>  <button type="submit" class="delete-item">x</button>
+                <h3 class="pure-u-3-5" href="#">{{items}}</h3>  <button class="pure-button pure-button-error delete-item pure-u-1-5" type="submit">x</button>
                 </form>
             </div>
 
