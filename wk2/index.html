@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/superhero/bootstrap.min.css"/>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular/app.js"></script>
+    <script src="node_modules/angular/dataService.js"></script>
 </head>
 <body ng-app="EmployeeDirectory">
 <main class="container-fluid">
@@ -17,7 +18,7 @@
                     <fieldset>
 
                         <!-- Form Name -->
-                        <legend><h1>Employee Directory</h1></legend>
+                        <legend>Employee Directory</legend>
 
                         <!-- Text input-->
                         <div class="form-group">
@@ -75,7 +76,7 @@
                 </form>
         </aside>
         <section ng-controller="ListController as listCtrl" class="col-md-8 container">
-            <div ng-repeat="directory in listCtrl">
+            <div ng-repeat="($scope, directory) in listCtrl">
                 <div class="col-lg-6 col-md-6" ng-repeat="Object in listCtrl.directory" >
                     <div class="panel panel-default">
                         <div class="panel-heading">
