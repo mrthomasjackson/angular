@@ -1,0 +1,89 @@
+ <div class="container-fluid">
+    <aside class="col-sm-4">
+        <form class="form-horizontal" name="Employees" ng-submit="formCtrl.hireEmployee(formCtrl.name, formCtrl.street, formCtrl.city, formCtrl.state, formCtrl.zip)" novalidate>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Employee Directory</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="name">Employee</label>
+                    <div class="col-md-12">
+                        <input id="name" name="name" type="text" placeholder="" class="form-control input-md" ng-model="formCtrl.name" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="street">Street</label>
+                    <div class="col-md-12">
+                        <input id="street" name="street" type="text" placeholder="" class="form-control input-md" ng-model="formCtrl.street" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="city">City</label>
+                    <div class="col-md-12">
+                        <input id="city" name="city" type="text" placeholder="" class="form-control input-md" ng-model="formCtrl.city" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="state">State</label>
+                    <div class="col-md-12">
+                        <input id="state" name="state" type="text" placeholder="" class="form-control input-md" ng-model="formCtrl.state" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="zip">Zip</label>
+                    <div class="col-md-12">
+                        <input id="zip" name="zip" type="text" placeholder="" class="form-control input-md" ng-model="formCtrl.zip" required="">
+
+                    </div>
+                </div>
+
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button id="submit" name="submit" value="submit" class="btn btn-success">Hire</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </aside>
+
+    <section class="col-sm-8 container">
+        <div>
+            <div class="col-lg-6 col-md-6" ng-repeat="Object in formCtrl.directory track by $index" >
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="col-xs-10">
+                            <h3>{{Object.name}}</h3>
+                        </div>
+                        <div ng-controller="View1Controller as term" class="col-xs-2"><button ng-click="term.termEmployee(Object)" class="btn-sm btn-danger">Term</button></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4>Address:</h4>
+                        </div>
+                        <div class="col-md-9 text-right">
+                            <p>{{Object.street}}</p>
+                            <p>{{Object.city}} {{Object.state}}, {{Object.zip}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    </div>

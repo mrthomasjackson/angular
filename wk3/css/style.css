@@ -1,0 +1,27 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 1.5em; /* 18px */
+	color: #383838;
+	background-color: #fff;
+	background-image: none;
+	background-repeat: repeat;
+	background-position: left top;
+	/* Fix for webkit rendering */
+	-webkit-font-smoothing: antialiased; 
+	-webkit-text-size-adjust: 100%;
+	background-color: #256657;
+}
+
+section {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	width: 500px;
+	background-color: aliceblue;
+	padding: 25px;
+}
+
+.ng-scope {
+	margin-bottom: 10px;
+}

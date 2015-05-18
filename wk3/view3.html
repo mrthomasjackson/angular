@@ -1,0 +1,77 @@
+<div class='container-fluid' ng-controller="View3Controller as can3">
+    <aside class="col-sm-4">
+        <form class="form-horizontal" ng-submit="can3.updateExpense(can3.expenseType, can3.expenseCleared, can3.expenseDate, otherTest)" novalidate>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Expense Detail</legend>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="expenseType">Type</label>
+                    <div class="col-md-8">
+                        <input id="expenseType" name="expenseType" type="text" placeholder="{{can3.detail.category}}" class="form-control input-md" ng-model="can3.expenseType" required="">
+                    </div>
+                </div>
+
+                <!-- Multiple Radios -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="expenseCleared">Cleared</label>
+                    <div class="col-md-8">
+                        <div class="radio">
+                            <label for="expenseCleared-0">
+                                <input type="radio" name="expenseCleared" id="expenseCleared-0" value="true" ng-model="can3.expenseCleared" >
+                                Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="expenseCleared-1">
+                                <input type="radio" name="expenseCleared" id="expenseCleared-1" value="false" checked="checked" ng-model="can3.expenseCleared">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="expenseDate">Date</label>
+                    <div class="col-md-8">
+                        <input id="expenseDate" name="expenseDate" type="text" placeholder="mm/dd/yyyy" class="form-control input-md" ng-model="can3.expenseDate" required="">
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="expenseSubmit"></label>
+                    <div class="col-md-4">
+                        <button id="expenseSubmit" name="expenseSubmit" value="submit" class="btn btn-primary">Submit</button>
+                        <a href="#/view2" class="btn btn-danger">Cancel</a>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </aside>
+    <section class="col-sm-8 container">
+        <div>
+            <div class="col-lg-6 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="col-xs-12">
+                            <h3>{{can3.detail.description}} - {{can3.detail.amount}}</h3>
+                        </div>
+
+                    </div>
+                    <div class="panel-body">
+                        <h5>Expense Type: <strong>{{can3.detail.category}}</strong></h5><br />
+                        <h5>Expense Cleared: <strong>{{can3.detail.cleared}}</strong></h5><br />
+                        <h5>Date: <strong>{{can3.detail.date}}</strong></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
